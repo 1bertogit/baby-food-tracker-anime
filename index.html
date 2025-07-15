@@ -1,12 +1,132 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SBC Starter Kit</title>
-    <meta name="description" content="The first web app boilerplate built specifically for AI-first editors like Cursor." />
+    
+    <!-- PWA Meta Tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#8b5cf6" />
+    <meta name="background-color" content="#ffffff" />
+    
+    <!-- Basic Meta Information -->
+    <title>Baby Food Tracker - Introdução Alimentar Segura e Prática</title>
+    <meta name="description" content="Acompanhe a introdução alimentar do seu bebê de forma prática e segura. Cronograma completo, testes de alergia, controle de suplementos e muito mais." />
+    <meta name="keywords" content="baby food, introdução alimentar, bebê, alimentação, cronograma, alergia, suplementos, BLW, papinha, pediatria, nutrição infantil" />
+    <meta name="author" content="Baby Food Tracker Team" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="pt-BR" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="rating" content="general" />
+    <meta name="distribution" content="global" />
+    <meta name="copyright" content="© 2024 Baby Food Tracker" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://baby-food-tracker.vercel.app/" />
+    
+    <!-- PWA Icons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    
+    <!-- iOS Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Baby Food" />
+    
+    <!-- Android Meta Tags -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="Baby Food Tracker" />
+    
+    <!-- Microsoft Meta Tags -->
+    <meta name="msapplication-TileColor" content="#8b5cf6" />
+    <meta name="msapplication-config" content="/browserconfig.xml" />
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Baby Food Tracker - Introdução Alimentar Segura e Prática" />
+    <meta property="og:description" content="Acompanhe a introdução alimentar do seu bebê de forma prática e segura. Cronograma completo, testes de alergia, controle de suplementos e muito mais." />
+    <meta property="og:image" content="https://baby-food-tracker.vercel.app/icons/icon-512x512.svg" />
+    <meta property="og:image:alt" content="Baby Food Tracker - App para introdução alimentar" />
+    <meta property="og:image:width" content="512" />
+    <meta property="og:image:height" content="512" />
+    <meta property="og:url" content="https://baby-food-tracker.vercel.app/" />
+    <meta property="og:site_name" content="Baby Food Tracker" />
+    <meta property="og:locale" content="pt_BR" />
+    
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Baby Food Tracker - Introdução Alimentar Segura e Prática" />
+    <meta name="twitter:description" content="Acompanhe a introdução alimentar do seu bebê de forma prática e segura. Cronograma completo, testes de alergia, controle de suplementos e muito mais." />
+    <meta name="twitter:image" content="https://baby-food-tracker.vercel.app/icons/icon-512x512.svg" />
+    <meta name="twitter:image:alt" content="Baby Food Tracker - App para introdução alimentar" />
+    <meta name="twitter:site" content="@babyfoodtracker" />
+    <meta name="twitter:creator" content="@babyfoodtracker" />
+    
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="/icons/icon-192x192.svg" as="image" type="image/svg+xml" />
+    <link rel="preload" href="/src/main.tsx" as="script" />
+    <link rel="preload" href="/src/index.css" as="style" />
+    
+    <!-- DNS Prefetch for External Resources -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+    
+    <!-- Main Stylesheet -->
     <link rel="stylesheet" href="src/index.css" />
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Baby Food Tracker",
+      "alternateName": "Introdução Alimentar",
+      "description": "Acompanhe a introdução alimentar do seu bebê de forma prática e segura. Cronograma completo, testes de alergia, controle de suplementos e muito mais.",
+      "url": "https://baby-food-tracker.vercel.app/",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Web, iOS, Android",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "BRL"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "Baby Food Tracker Team"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Baby Food Tracker",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://baby-food-tracker.vercel.app/icons/icon-512x512.svg"
+        }
+      },
+      "datePublished": "2024-01-01",
+      "dateModified": "2024-12-15",
+      "inLanguage": "pt-BR",
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Parents, Caregivers"
+      },
+      "keywords": "baby food, introdução alimentar, bebê, alimentação, cronograma, alergia, suplementos, BLW, papinha, pediatria, nutrição infantil",
+      "mainEntity": {
+        "@type": "SoftwareApplication",
+        "name": "Baby Food Tracker",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "BRL"
+        }
+      }
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>

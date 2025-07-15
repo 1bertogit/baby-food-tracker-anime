@@ -134,6 +134,36 @@ Contributions are welcome! Please read our contribution guide before submitting 
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
+## 🎨 Anime-Inspired UI
+
+This Baby Food Tracker has been transformed with a kawaii anime-inspired design system featuring:
+
+### Design Features
+- 🌸 **Soft pastel color palette** with custom kawaii colors (pink, lavender, mint, peach, sky)
+- 🎭 **Cel-shading effects** on cards and components 
+- 👶 **Chibi mascot avatar** with floating heart animations
+- ✨ **Smooth Framer Motion animations** with staggered entrances
+- 🎪 **Kawaii visual elements** including gradients and rounded corners
+
+### Font Stack
+- **Display Font**: Nico Moji (for titles and headings)
+- **Body Font**: Nunito Sans (for content and UI text)
+
+### Custom Animations
+- `bounce-kawaii`: Cute bouncing animation for interactive elements
+- `spin-slow`: Gentle gradient rotation for navigation borders
+- `pulse-soft`: Subtle breathing effect for highlights
+
+### Color Palette
+```css
+kawaii-pink: #ffd3e1
+kawaii-lavender: #e1d7ff  
+kawaii-mint: #d3ffe4
+kawaii-peach: #ffe4d3
+kawaii-sky: #d3f4ff
+kawaii-cream: #fff9d3
+```
+
 ## 📄 License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.

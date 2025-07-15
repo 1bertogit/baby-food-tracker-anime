@@ -1,4 +1,6 @@
 @import 'tailwindcss';
+@import './styles/pwa.css';
+@import './styles/accessibility.css';
 
 @plugin "tailwindcss-animate";
 
@@ -42,6 +44,27 @@
   --sidebar-accent-foreground: oklch(0.21 0.006 285.885);
   --sidebar-border: oklch(0.92 0.004 286.32);
   --sidebar-ring: oklch(0.871 0.006 286.286);
+  
+  /* Custom app colors for light mode */
+  --app-primary: #8b5cf6;
+  --app-primary-hover: #7c3aed;
+  
+  /* Header animations */
+  --header-gradient: linear-gradient(135deg, #f472b6 0%, #a855f7 50%, #6366f1 100%);
+  --header-pattern-1: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.2) 0%, transparent 50%);
+  --header-pattern-2: radial-gradient(circle at 80% 20%, rgba(255,255,255,0.15) 0%, transparent 50%);
+  --app-secondary: #ec4899;
+  --app-secondary-hover: #db2777;
+  --app-success: #10b981;
+  --app-success-hover: #059669;
+  --app-warning: #f59e0b;
+  --app-warning-hover: #d97706;
+  --app-error: #ef4444;
+  --app-error-hover: #dc2626;
+  --app-info: #3b82f6;
+  --app-info-hover: #2563eb;
+  --app-neutral: #6b7280;
+  --app-neutral-hover: #4b5563;
 }
 
 .dark {
@@ -77,6 +100,22 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(0.274 0.006 286.033);
   --sidebar-ring: oklch(0.442 0.017 285.786);
+  
+  /* Custom app colors for dark mode */
+  --app-primary: #a78bfa;
+  --app-primary-hover: #8b5cf6;
+  --app-secondary: #f472b6;
+  --app-secondary-hover: #ec4899;
+  --app-success: #34d399;
+  --app-success-hover: #10b981;
+  --app-warning: #fbbf24;
+  --app-warning-hover: #f59e0b;
+  --app-error: #f87171;
+  --app-error-hover: #ef4444;
+  --app-info: #60a5fa;
+  --app-info-hover: #3b82f6;
+  --app-neutral: #9ca3af;
+  --app-neutral-hover: #6b7280;
 }
 
 @theme inline {
@@ -167,4 +206,317 @@
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+}
+
+/* Theme-aware utility classes */
+.btn-app-primary {
+  background-color: var(--app-primary);
+  color: white;
+  transition: background-color 0.2s ease;
+}
+
+.btn-app-primary:hover {
+  background-color: var(--app-primary-hover);
+}
+
+.btn-app-secondary {
+  background-color: var(--app-secondary);
+  color: white;
+  transition: background-color 0.2s ease;
+}
+
+.btn-app-secondary:hover {
+  background-color: var(--app-secondary-hover);
+}
+
+.btn-app-success {
+  background-color: var(--app-success);
+  color: white;
+  transition: background-color 0.2s ease;
+}
+
+.btn-app-success:hover {
+  background-color: var(--app-success-hover);
+}
+
+.btn-app-warning {
+  background-color: var(--app-warning);
+  color: white;
+  transition: background-color 0.2s ease;
+}
+
+.btn-app-warning:hover {
+  background-color: var(--app-warning-hover);
+}
+
+.btn-app-error {
+  background-color: var(--app-error);
+  color: white;
+  transition: background-color 0.2s ease;
+}
+
+.btn-app-error:hover {
+  background-color: var(--app-error-hover);
+}
+
+.text-app-primary {
+  color: var(--app-primary);
+}
+
+.text-app-secondary {
+  color: var(--app-secondary);
+}
+
+.text-app-success {
+  color: var(--app-success);
+}
+
+.text-app-warning {
+  color: var(--app-warning);
+}
+
+.text-app-error {
+  color: var(--app-error);
+}
+
+.border-app-primary {
+  border-color: var(--app-primary);
+}
+
+.bg-app-primary {
+  background-color: var(--app-primary);
+}
+
+/* Header animations and effects */
+@keyframes headerGlow {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+  }
+  50% { 
+    box-shadow: 0 0 30px rgba(168, 85, 247, 0.5);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { 
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes slideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header-glow {
+  animation: headerGlow 3s ease-in-out infinite;
+}
+
+.pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+.slide-in-top {
+  animation: slideInFromTop 0.6s ease-out;
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* Glassmorphism utilities */
+.glass-effect {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-button {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.glass-button:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+/* Progress circle animation */
+@keyframes fillProgress {
+  from {
+    stroke-dashoffset: 251.2;
+  }
+  to {
+    stroke-dashoffset: calc(251.2 - (251.2 * var(--progress, 0) / 100));
+  }
+}
+
+.progress-circle {
+  animation: fillProgress 1s ease-out forwards;
+}
+
+/* Quick Action Buttons Animations */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) skewX(-12deg);
+  }
+  100% {
+    transform: translateX(200%) skewX(-12deg);
+  }
+}
+
+@keyframes buttonPulse {
+  0%, 100% {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  }
+}
+
+@keyframes iconBounce {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(2px);
+  }
+}
+
+.quick-action-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.quick-action-button:hover {
+  animation: buttonPulse 2s infinite;
+}
+
+.quick-action-button .icon-bounce:hover {
+  animation: iconBounce 0.6s ease-in-out infinite;
+}
+
+/* Gradient text animation */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-text {
+  background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c);
+  background-size: 400% 400%;
+  animation: gradientShift 3s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Floating animation for icons */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+.floating-icon {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Progress bar animation */
+@keyframes progressFill {
+  from {
+    width: 0%;
+  }
+  to {
+    width: var(--progress-width, 0%);
+  }
+}
+
+.progress-bar-animated {
+  animation: progressFill 1.5s ease-out forwards;
+}
+
+/* Hover glow effect */
+.glow-on-hover {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.glow-on-hover:hover {
+  filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.5));
+}
+
+.glow-on-hover:hover::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #f5576c);
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0.7;
+  filter: blur(6px);
+}
+
+/* Staggered animation for buttons */
+.stagger-animation {
+  animation: slideInUp 0.6s ease-out forwards;
+}
+
+.stagger-animation:nth-child(1) { animation-delay: 0.1s; }
+.stagger-animation:nth-child(2) { animation-delay: 0.2s; }
+.stagger-animation:nth-child(3) { animation-delay: 0.3s; }
+.stagger-animation:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.bg-app-primary-hover:hover {
+  background-color: var(--app-primary-hover);
 }

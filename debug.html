@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Debug Baby Food Tracker</title>
+</head>
+<body>
+    <h1>Debug Test</h1>
+    <p>Se você está vendo isso, o servidor está funcionando!</p>
+    
+    <h2>Teste de JavaScript:</h2>
+    <div id="test"></div>
+    
+    <h2>Logs:</h2>
+    <div id="logs" style="background: #f0f0f0; padding: 10px; font-family: monospace;"></div>
+    
+    <script>
+        // Teste básico
+        document.getElementById('test').innerHTML = '✅ JavaScript está funcionando!';
+        
+        // Capturar erros
+        window.onerror = function(msg, url, lineNo, columnNo, error) {
+            const log = document.getElementById('logs');
+            log.innerHTML += `<div style="color: red;">❌ Erro: ${msg} at ${url}:${lineNo}</div>`;
+            return false;
+        };
+        
+        // Log do localStorage
+        const log = document.getElementById('logs');
+        log.innerHTML += '<div>📦 LocalStorage:</div>';
+        for (let key in localStorage) {
+            log.innerHTML += `<div>- ${key}: ${localStorage[key]}</div>`;
+        }
+        
+        // Tentar carregar o app
+        log.innerHTML += '<div style="margin-top: 10px;">🚀 Tentando carregar o app...</div>';
+        
+        setTimeout(() => {
+            log.innerHTML += '<div><a href="/index.html">Clique aqui para abrir o app</a></div>';
+        }, 1000);
+    </script>
+</body>
+</html>

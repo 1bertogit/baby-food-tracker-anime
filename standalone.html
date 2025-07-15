@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baby Food Tracker - Teste</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(to bottom right, #fce7f3, #e9d5ff, #c7d2fe);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #9333ea;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .status {
+            background: #f3f4f6;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .success {
+            color: #16a34a;
+            font-weight: bold;
+        }
+        .error {
+            color: #dc2626;
+            font-weight: bold;
+        }
+        .button {
+            background: #9333ea;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            margin-top: 10px;
+            transition: background 0.2s;
+        }
+        .button:hover {
+            background: #7c3aed;
+        }
+        .info {
+            background: #eff6ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-left: 4px solid #3b82f6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🍼 Baby Food Tracker</h1>
+        
+        <div class="status">
+            <h2>Status do Sistema:</h2>
+            <p class="success">✅ Página HTML carregada com sucesso!</p>
+            <p id="js-status">⏳ Testando JavaScript...</p>
+        </div>
+
+        <div class="info">
+            <h3>📱 O que fazer agora:</h3>
+            <p>O app principal parece estar com problemas de conexão. Vamos tentar outras opções:</p>
+        </div>
+
+        <button class="button" onclick="openDirectly()">
+            Abrir App Diretamente (Arquivo Local)
+        </button>
+
+        <button class="button" onclick="testConnection()">
+            Testar Conexão HTTP
+        </button>
+
+        <button class="button" onclick="showInstructions()">
+            Ver Instruções Manuais
+        </button>
+
+        <div id="results" style="margin-top: 20px;"></div>
+    </div>
+
+    <script>
+        // Teste de JavaScript
+        document.getElementById('js-status').innerHTML = '<span class="success">✅ JavaScript funcionando!</span>';
+
+        function openDirectly() {
+            const path = '/Users/humbertolopes/PROJETOS/Testes/Baby-App/sbc-cursor-starter-kit/dist/index.html';
+            window.location.href = 'file://' + path;
+        }
+
+        function testConnection() {
+            const results = document.getElementById('results');
+            results.innerHTML = '<div class="status"><p>🔍 Testando conexões...</p></div>';
+            
+            const ports = [3000, 4173, 5173, 8080, 8888];
+            ports.forEach(port => {
+                fetch(`http://localhost:${port}`)
+                    .then(() => {
+                        results.innerHTML += `<p class="success">✅ Porta ${port} está respondendo!</p>`;
+                    })
+                    .catch(() => {
+                        results.innerHTML += `<p class="error">❌ Porta ${port} não está acessível</p>`;
+                    });
+            });
+        }
+
+        function showInstructions() {
+            const results = document.getElementById('results');
+            results.innerHTML = `
+                <div class="info">
+                    <h3>🛠️ Instruções Manuais:</h3>
+                    <ol>
+                        <li><strong>Opção 1 - Servidor Python:</strong><br>
+                            <code>cd /Users/humbertolopes/PROJETOS/Testes/Baby-App/sbc-cursor-starter-kit/dist</code><br>
+                            <code>python3 -m http.server 9999</code><br>
+                            Depois acesse: <a href="http://localhost:9999">http://localhost:9999</a>
+                        </li>
+                        <li><strong>Opção 2 - Abrir no Finder:</strong><br>
+                            Navegue até a pasta dist e dê duplo clique em index.html
+                        </li>
+                        <li><strong>Opção 3 - Usar outro navegador:</strong><br>
+                            Às vezes o Chrome bloqueia localhost. Tente Firefox ou Safari.
+                        </li>
+                    </ol>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
