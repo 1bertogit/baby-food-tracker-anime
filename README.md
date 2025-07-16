@@ -1,202 +1,133 @@
-# 🚀 SBC Starter Kit
+# 🍼 Baby Food Tracker - Anime Edition
 
 <div align="center">
 
-![SBC Starter Kit](https://raw.githubusercontent.com/m4n3z40/sbc-cursor-starter-kit/master/public/vite.svg)
+![Baby Food Tracker](public/app-icon.svg)
 
-The first web app boilerplate built specifically for AI-first editors like Cursor.
-
-[Demo](https://sbc-cursor-starter-kit.netlify.app) · [Report Bug](https://github.com/m4n3z40/sbc-cursor-starter-kit/issues) · [Request Feature](https://github.com/m4n3z40/sbc-cursor-starter-kit/issues)
+Um aplicativo completo para acompanhar a alimentação do bebê, com uma interface inspirada em anime kawaii.
 
 </div>
 
-## ✨ Features
+## ✨ Funcionalidades
 
-- 🏗️ **Modern Stack**: React 19, Vite, TypeScript, and Tailwind CSS
-- 🎯 **State Management**: Zustand for simple and efficient state management
-- 🎨 **Component Library**: Shadcn/ui for beautiful, accessible UI components
-- 🌈 **Animations**: Framer Motion for professional animations
-- 📱 **Responsive**: Adaptive layout for all screens
-- 🔍 **SEO Optimized**: Best practices for SEO
-- 🚦 **Routing**: React Router v7 for modern navigation
-- 🛠️ **Development Tools**: ESLint, Prettier, Husky and Lint-staged
-- 🧪 **Testing Ready**: Testing configuration included
-- 🔄 **Hot Reload**: Instant development updates
+- 🍎 **Rastreamento de alimentos**: Registre quais alimentos foram testados
+- 🧪 **Testes de alergia**: Acompanhe os resultados de testes de alergia
+- 💊 **Gerenciamento de suplementos**: Controle os suplementos administrados
+- 📆 **Cronograma alimentar**: Planeje a introdução de novos alimentos
+- 📊 **Estatísticas e progresso**: Visualize o progresso alimentar
+- 📱 **PWA**: Funciona offline como um aplicativo nativo
+- 🌙 **Tema claro/escuro**: Interface adaptável
+- 🔒 **Autenticação**: Login seguro com Supabase
 
-## 🎯 Principles
+## 🎨 Design Anime Kawaii
 
-- **AI-first**: Built for AI-first editors like Cursor
-- **Simplicity**: Keep things simple yet powerful
-- **Quality Code**: Focus on readability and maintainability
-- **Safety**: Uses TypeScript, ESLint, Prettier for type safety and code quality
-- **DX**: Great developer experience and productivity
-- **Best Practices**: Following modern web development standards
+Este Baby Food Tracker foi transformado com um sistema de design kawaii inspirado em anime:
 
-## 📦 Project Structure
+### Características de Design
 
-```
-index.html                # Main page
-public/                   # Static files
-src/
-├── assets/               # Static assets
-├── components/           # React Components
-│   ├── layout/           # Layout components
-│   └── ui/               # UI Components (Shadcn)
-|   └── <your-component>/ # Custom components
-├── hooks/                # Custom React Hooks
-├── lib/                  # Utilities and helpers
-├── pages/                # Application pages
-├── store/                # State management (Zustand)
-├── main.tsx              # Main entry point
-├── App.tsx               # Routes and Context Providers setup
-└── index.css             # Global styles
-```
+- 🌸 **Paleta de cores pastel suave** com cores kawaii personalizadas (rosa, lavanda, menta, pêssego, céu)
+- 🎭 **Efeitos de sombreamento cel** em cards e componentes
+- 👶 **Avatar mascote chibi** com animações de corações flutuantes
+- ✨ **Animações suaves com Framer Motion** com entradas escalonadas
+- 🎪 **Elementos visuais kawaii** incluindo gradientes e cantos arredondados
 
-## 🚀 Getting Started
+### Stack de Fontes
 
-### Prerequisites
+- **Fonte de Exibição**: Nico Moji (para títulos e cabeçalhos)
+- **Fonte de Corpo**: Nunito Sans (para conteúdo e texto da UI)
 
-- Node.js 18+
-- npm or pnpm
+### Paleta de Cores
 
-### Installation
-
-1. Clone the repository
-
-```bash
-git clone https://github.com/m4n3z40/sbc-cursor-starter-kit.git
-cd sbc-cursor-starter-kit
-```
-
-2. Install dependencies
-
-```bash
-npm install --legacy-peer-deps
-# or
-pnpm install --legacy-peer-deps
-```
-
-3. Start development server
-
-```bash
-npm run dev
-# or
-pnpm dev
-```
-
-## 📝 Available Scripts
-
-- `npm run dev`: Start development server
-- `npm run build`: Build for production
-- `npm run preview`: Preview production build locally
-- `npm run lint`: Run linter
-- `npm run lint:fix`: Fix linting issues automatically
-- `npm run format`: Format code with Prettier
-
-## 🛠️ Technologies
-
-- [React 19](https://react.dev/)
-- [Vite](https://vitejs.dev/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Shadcn/ui](https://ui.shadcn.com/)
-- [Framer Motion](https://www.framer.com/motion/)
-- [Zustand](https://zustand-demo.pmnd.rs/)
-- [React Router](https://reactrouter.com/)
-
-## 🎨 Customization
-
-### Themes
-
-The project uses Shadcn UI's design system, which can be customized through Tailwind configuration files.
-
-### Components
-
-All Shadcn UI components can be customized. Check the [official documentation](https://ui.shadcn.com/) for more details.
-
-## 📈 Performance
-
-The project is optimized for performance with:
-
-- Automatic code splitting
-- Component lazy loading
-- Image optimization
-- Asset minification
-- Tree shaking
-
-## 🤝 Contributing
-
-Contributions are welcome! Please read our contribution guide before submitting a PR.
-
-1. Fork the project
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 🎨 Anime-Inspired UI
-
-This Baby Food Tracker has been transformed with a kawaii anime-inspired design system featuring:
-
-### Design Features
-- 🌸 **Soft pastel color palette** with custom kawaii colors (pink, lavender, mint, peach, sky)
-- 🎭 **Cel-shading effects** on cards and components 
-- 👶 **Chibi mascot avatar** with floating heart animations
-- ✨ **Smooth Framer Motion animations** with staggered entrances
-- 🎪 **Kawaii visual elements** including gradients and rounded corners
-
-### Font Stack
-- **Display Font**: Nico Moji (for titles and headings)
-- **Body Font**: Nunito Sans (for content and UI text)
-
-### Custom Animations
-- `bounce-kawaii`: Cute bouncing animation for interactive elements
-- `spin-slow`: Gentle gradient rotation for navigation borders
-- `pulse-soft`: Subtle breathing effect for highlights
-
-### Color Palette
 ```css
 kawaii-pink: #ffd3e1
-kawaii-lavender: #e1d7ff  
+kawaii-lavender: #e1d7ff
 kawaii-mint: #d3ffe4
 kawaii-peach: #ffe4d3
 kawaii-sky: #d3f4ff
 kawaii-cream: #fff9d3
 ```
 
-### How to Run with Anime UI
+## 🚀 Tecnologias
+
+- [React 19](https://react.dev/)
+- [Vite](https://vitejs.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Shadcn/ui](https://ui.shadcn.com/)
+- [Zustand](https://zustand-demo.pmnd.rs/)
+- [React Router](https://reactrouter.com/)
+- [Supabase](https://supabase.com/) para autenticação e banco de dados
+
+## 🚀 Começando
+
+### Pré-requisitos
+
+- Node.js 18+
+- npm
+
+### Instalação
+
+1. Clone o repositório
+
 ```bash
-# Install dependencies (with legacy peer deps for React 19 compatibility)
-npm install --legacy-peer-deps
-
-# Start development server
-npm run dev
-
-# Build for production  
-npm run build
-
-# Preview production build
-npm run preview
+git clone https://github.com/1bertogit/baby-food-tracker-anime.git
+cd baby-food-tracker-anime
 ```
 
-The anime UI is now live! Visit `http://localhost:5173` to see the kawaii transformation in action. 🌸
+2. Instale as dependências
 
-## 📄 License
+```bash
+npm install --legacy-peer-deps
+```
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+3. Inicie o servidor de desenvolvimento
 
-## 🙏 Acknowledgments
+```bash
+npm run dev
+```
 
-- [Shadcn](https://twitter.com/shadcn) for the amazing UI system
-- [Cursor](https://cursor.sh/) for the excellent AI-first editor
-- All contributors and maintainers of the dependencies used
+## 📦 Estrutura do Projeto
+
+```
+src/
+├── assets/               # Arquivos estáticos
+├── components/           # Componentes React
+│   ├── auth/             # Componentes de autenticação
+│   ├── baby-food/        # Componentes específicos do app
+│   ├── layout/           # Componentes de layout
+│   └── ui/               # Componentes UI (Shadcn)
+├── hooks/                # Custom React Hooks
+├── lib/                  # Utilitários e helpers
+├── pages/                # Páginas da aplicação
+├── store/                # Gerenciamento de estado (Zustand)
+├── main.tsx              # Ponto de entrada principal
+└── app.tsx               # Configuração de rotas e providers
+```
+
+## 🌐 Integração com Supabase
+
+Este projeto utiliza o Supabase para:
+
+- Autenticação de usuários
+- Banco de dados PostgreSQL
+- Row Level Security para proteção de dados
+- Armazenamento de arquivos (opcional)
+
+Para configurar o Supabase:
+
+1. Crie uma conta em [supabase.com](https://supabase.com)
+2. Configure as variáveis de ambiente:
+   - `VITE_SUPABASE_URL`
+   - `VITE_SUPABASE_ANON_KEY`
+
+## 📄 Licença
+
+Este projeto está licenciado sob a Licença MIT. Consulte o arquivo [LICENSE](LICENSE) para detalhes.
 
 ---
 
 <div align="center">
 
-Made with ❤️ by the community
-
-[⬆ Back to top](#-sbc-starter-kit)
+Feito com ❤️ para todos os pais e bebês
 
 </div>
