@@ -60,7 +60,9 @@ export function LoginForm() {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <form onSubmit={handleAuth} className="space-y-4">
+        <form onSubmit={(e) => { 
+          void handleAuth(e);
+        }} className="space-y-4">
           <div className="space-y-2">
             <Label htmlFor="email">Email</Label>
             <Input

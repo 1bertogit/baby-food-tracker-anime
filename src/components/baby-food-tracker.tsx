@@ -74,6 +74,33 @@ export const BabyFoodTracker: React.FC = () => {
 
   const currentSchedule = weeklySchedule[currentWeek];
 
+  function renderDescriptionTitle(today: any) {
+    if (!today) return <span className="opacity-60 text-sm italic">Selecione um dia para ver detalhes</span>;
+    
+    const weekNum = Math.ceil(today.day / 7);
+    const isPastToday = new Date(today.date) < new Date();
+    const isCurrentWeek = weekNum === currentWeek;
+
+    // Default description
+    let description = `${today.title ?? "Dia"} (Semana ${weekNum})`;
+    
+    // Highlight current day
+    if (today.day === currentDay) {
+      description = `${description} - HOJE`;
+    }
+
+    return (
+      <div className="flex flex-col">
+        <span className={`font-medium ${isPastToday ? 'text-emerald-600' : 'text-blue-600'}`}>
+          {description}
+        </span>
+        <span className="text-xs opacity-70">
+          {today.subtitle}
+        </span>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-pink-50 via-purple-50 to-indigo-50">
       <a href="#main-content" className="skip-link">

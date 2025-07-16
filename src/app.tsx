@@ -49,7 +49,7 @@ function App() {
         <div className="flex items-center justify-center min-h-screen bg-red-50 p-4">
           <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
             <h2 className="text-xl font-bold text-red-600 mb-2">Algo deu errado!</h2>
-            <p className="text-gray-700 mb-4">{error.message || 'Um erro ocorreu. Por favor, recarregue a página.'}</p>
+            <p className="text-gray-700 mb-4">{(error as Error).message || 'Um erro ocorreu. Por favor, recarregue a página.'}</p>
             <button 
               className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
               onClick={() => window.location.reload()}
