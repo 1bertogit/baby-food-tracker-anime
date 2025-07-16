@@ -1,73 +1,80 @@
 import { Suspense, lazy } from 'react'
-import { BrowserRouter as Router, Routes, Route, RouteProps } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, RouteProps, Navigate } from 'react-router-dom'
 import { ThemeProvider } from 'next-themes'
 import { Toaster } from './components/ui/sonner'
 import { PWAWrapper } from './components/pwa/PWAWrapper'
-import { ErrorBoundary } from './components/error-boundary'
-import { OfflineSupport } from './components/pwa/OfflineSupport'
+import { ErrorBoundary, FallbackProps } from 'react-error-boundary'
 import { LazyLoader } from './components/loading/LazyLoader'
-import { SEOHead } from './components/seo/SEOHead'
-import { ResourcePreloader, commonPreloads } from './components/seo/ResourcePreloader'
-import { globalErrorHandler } from './lib/error-handler'
+import { AuthProvider, useAuth } from './lib/auth-context'
 
 // Lazy load pages with dynamic imports
 const routes: RouteProps[] = [
   {
     index: true,
     path: '/',
+    element: <ProtectedRoute />,
+  },
+  {
+    path: '/auth',
     Component: lazy(() => 
-      import('./pages/index').then(module => ({ default: module.default }))
+      import('./pages/auth').then(module => ({ default: module.default }))
     ),
   },
 ]
 
-// Lazy load heavy components (for future use)
-// const BabyFoodTracker = lazy(() => 
-//   import('./components/baby-food-tracker').then(module => ({ default: module.BabyFoodTracker }))
-// );
+// Protected Route component
+function ProtectedRoute() {
+  const { user, loading } = useAuth();
+  
+  const HomePage = lazy(() => 
+    import('./pages/index').then(module => ({ default: module.default }))
+  );
 
-// const AddFoodModal = lazy(() => 
-//   import('./components/baby-food/add-food-modal').then(module => ({ default: module.AddFoodModal }))
-// );
+  if (loading) {
+    return <LazyLoader message="Verificando autenticação..." />;
+  }
+  
+  return user ? <HomePage /> : <Navigate to="/auth" />;
+}
 
 const loading = <LazyLoader message="Carregando aplicação..." />
 
 function App() {
   return (
     <ErrorBoundary
-      onError={(error, errorInfo) => {
-        globalErrorHandler.logError({
-          message: error.message,
-          stack: error.stack,
-          timestamp: new Date().toISOString(),
-          url: window.location.href,
-          userAgent: navigator.userAgent,
-          type: 'javascript',
-          severity: 'high',
-          context: { componentStack: errorInfo.componentStack }
-        });
+      onError={(error: Error, errorInfo: React.ErrorInfo) => {
+        console.error('Application error:', error, errorInfo);
       }}
-      showDetails={process.env.NODE_ENV === 'development'}
+      fallbackRender={({ error }: FallbackProps) => (
+        <div className="flex items-center justify-center min-h-screen bg-red-50 p-4">
+          <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
+            <h2 className="text-xl font-bold text-red-600 mb-2">Algo deu errado!</h2>
+            <p className="text-gray-700 mb-4">{error.message || 'Um erro ocorreu. Por favor, recarregue a página.'}</p>
+            <button 
+              className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
+              onClick={() => window.location.reload()}
+            >
+              Recarregar aplicação
+            </button>
+          </div>
+        </div>
+      )}
     >
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-        <ResourcePreloader 
-          resources={[...commonPreloads.images, ...commonPreloads.fonts]}
-          priority="high"
-        />
-        <PWAWrapper>
-          <OfflineSupport />
-          <Router>
-            <SEOHead />
-            <Suspense fallback={loading}>
-              <Routes>
-                {routes.map((route) => (
-                  <Route key={route.path} {...route} />
-                ))}
-              </Routes>
-            </Suspense>
-            <Toaster />
-          </Router>
-        </PWAWrapper>
+        <AuthProvider>
+          <PWAWrapper>
+            <Router>
+              <Suspense fallback={loading}>
+                <Routes>
+                  {routes.map((route, index) => (
+                    <Route key={index} {...route} />
+                  ))}
+                </Routes>
+              </Suspense>
+            </Router>
+            <Toaster position="top-center" />
+          </PWAWrapper>
+        </AuthProvider>
       </ThemeProvider>
     </ErrorBoundary>
   )

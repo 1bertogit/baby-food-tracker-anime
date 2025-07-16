@@ -3,6 +3,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { registerSW } from 'virtual:pwa-register'
 import { App } from './app.tsx'
+import './index.css'
 
 // Register Service Worker (handled by VitePWA plugin)
 registerSW({ immediate: true })

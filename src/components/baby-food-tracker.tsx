@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Calendar, Apple, TestTubes, AlertTriangle, Pill, Plus, ArrowRight, Timer, TrendingUp, Zap } from 'lucide-react';
-import { CiHome, CiApple, CiCalendar, CiStickyNote, CiWarning, CiPill, CiBookmark, CiRead } from 'react-icons/ci';
-import { motion } from 'framer-motion';
-import { ChibiAvatar } from './anime/ChibiAvatar';
+import { Calendar, Apple, TestTubes, AlertTriangle, Pill, BookOpen, Baby, CheckSquare, Plus, ArrowRight, Timer, TrendingUp, Zap } from 'lucide-react';
 import { useBabyFoodStore } from '../store/baby-food-store';
 import { useKeyboardNavigation } from '../hooks/useKeyboardNavigation';
 import { weeklySchedule } from '../lib/constants';
@@ -35,16 +32,16 @@ export const BabyFoodTracker: React.FC = () => {
 
   const [showOnboarding, setShowOnboarding] = useState(false);
 
-  // Tab navigation setup with anime icons
+  // Tab navigation setup
   const tabs = [
-    { id: 'dashboard', label: 'Dashboard', icon: CiHome, shortLabel: 'Home', tourId: 'dashboard-tab' },
-    { id: 'foods', label: 'Alimentos', icon: CiApple, shortLabel: 'Alimentos', tourId: 'foods-tab' },
-    { id: 'schedule', label: 'Cronograma', icon: CiCalendar, shortLabel: 'Agenda', tourId: 'schedule-tab' },
-    { id: 'daily', label: 'Diário', icon: CiStickyNote, shortLabel: 'Diário', tourId: 'daily-tab' },
-    { id: 'tests', label: 'Testes Alergia', icon: CiWarning, shortLabel: 'Testes', tourId: 'tests-tab' },
-    { id: 'supplements', label: 'Suplementos', icon: CiPill, shortLabel: 'Suplem.', tourId: 'supplements-tab' },
-    { id: 'todos', label: 'Tarefas', icon: CiBookmark, shortLabel: 'Tarefas', tourId: 'todos-tab' },
-    { id: 'guidelines', label: 'Diretrizes', icon: CiRead, shortLabel: 'Guias', tourId: 'guidelines-tab' },
+    { id: 'dashboard', label: 'Dashboard', icon: Baby, shortLabel: 'Home', tourId: 'dashboard-tab' },
+    { id: 'foods', label: 'Alimentos', icon: Apple, shortLabel: 'Alimentos', tourId: 'foods-tab' },
+    { id: 'schedule', label: 'Cronograma', icon: Calendar, shortLabel: 'Agenda', tourId: 'schedule-tab' },
+    { id: 'daily', label: 'Diário', icon: TestTubes, shortLabel: 'Diário', tourId: 'daily-tab' },
+    { id: 'tests', label: 'Testes Alergia', icon: AlertTriangle, shortLabel: 'Testes', tourId: 'tests-tab' },
+    { id: 'supplements', label: 'Suplementos', icon: Pill, shortLabel: 'Suplem.', tourId: 'supplements-tab' },
+    { id: 'todos', label: 'Tarefas', icon: CheckSquare, shortLabel: 'Tarefas', tourId: 'todos-tab' },
+    { id: 'guidelines', label: 'Diretrizes', icon: BookOpen, shortLabel: 'Guias', tourId: 'guidelines-tab' },
   ];
 
   const { containerRef, handleKeyDown } = useKeyboardNavigation({
@@ -90,7 +87,7 @@ export const BabyFoodTracker: React.FC = () => {
       
       <div className="min-h-screen flex flex-col">
         {/* Header */}
-        <header className="relative bg-anime-gradient text-white overflow-hidden slide-in-top" role="banner">
+        <header className="relative bg-gradient-to-br from-pink-400 via-purple-500 to-indigo-600 text-white overflow-hidden slide-in-top" role="banner">
           {/* Background Pattern */}
           <div className="absolute inset-0 opacity-10">
             <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_50%,rgba(255,255,255,0.2)_0%,transparent_50%)]" />
@@ -105,10 +102,12 @@ export const BabyFoodTracker: React.FC = () => {
               {/* Left side - Branding and context */}
               <div className="flex-1">
                 <div className="flex items-center gap-3 mb-2">
-                  <ChibiAvatar size="md" isActive={true} className="shadow-kawaii" />
+                  <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm pulse-glow">
+                    <Baby className="h-6 w-6 text-white" />
+                  </div>
                   <div>
-                    <h1 className="text-xl sm:text-2xl font-display font-bold tracking-tight">Baby Clara</h1>
-                    <p className="text-kawaii-pink text-xs sm:text-sm font-medium">Introdução Alimentar</p>
+                    <h1 className="text-xl sm:text-2xl font-bold tracking-tight">Baby Clara</h1>
+                    <p className="text-pink-100 text-xs sm:text-sm font-medium">Introdução Alimentar</p>
                   </div>
                 </div>
                 
@@ -116,11 +115,11 @@ export const BabyFoodTracker: React.FC = () => {
                 <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 text-xs sm:text-sm">
                   <div className="flex items-center gap-2 fade-in-up">
                     <div className="w-2 h-2 bg-green-300 rounded-full animate-pulse" />
-                    <span className="text-kawaii-cream">6º Mês</span>
+                    <span className="text-pink-100">6º Mês</span>
                   </div>
                   <div className="flex items-center gap-2 fade-in-up" style={{ animationDelay: '0.1s' }}>
                     <Calendar className="h-3 w-3 text-pink-200" />
-                    <span className="text-kawaii-cream">Dia {currentDay}</span>
+                    <span className="text-pink-100">Dia {currentDay}</span>
                   </div>
                 </div>
               </div>
@@ -130,7 +129,7 @@ export const BabyFoodTracker: React.FC = () => {
                 {/* Progress indicator */}
                 <div className="hidden sm:flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-lg px-3 py-2">
                   <div className="text-right">
-                    <div className="text-kawaii-cream text-xs font-medium">Progresso</div>
+                    <div className="text-pink-100 text-xs font-medium">Progresso</div>
                     <div className="text-sm font-bold">Semana {currentWeek}/4</div>
                   </div>
                   <div className="w-8 h-8 relative">
@@ -218,17 +217,13 @@ export const BabyFoodTracker: React.FC = () => {
                   aria-selected={activeTab === tab.id}
                   aria-controls={`tabpanel-${tab.id}`}
                   tabIndex={activeTab === tab.id ? 0 : -1}
-                  className={`relative flex flex-col sm:flex-row items-center px-2 sm:px-4 py-2 sm:py-2.5 rounded-lg font-medium text-xs sm:text-sm transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-kawaii-lavender focus:ring-offset-2 hover:scale-105 ${
+                  className={`flex flex-col sm:flex-row items-center px-2 sm:px-4 py-2 sm:py-2.5 rounded-lg font-medium text-xs sm:text-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 ${
                     activeTab === tab.id
-                      ? 'bg-anime-gradient text-white shadow-cel transform scale-105'
-                      : 'text-gray-600 hover:bg-kawaii-cream/50 hover:text-kawaii-lavender'
+                      ? 'bg-purple-600 text-white shadow-lg transform scale-105'
+                      : 'text-gray-600 hover:bg-gray-100 hover:text-purple-600'
                   }`}
                 >
-                  {/* Animated bottom border for active tab */}
-                  {activeTab === tab.id && (
-                    <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-kawaii-gradient animate-spin-slow rounded-full" />
-                  )}
-                  <tab.icon className="h-5 w-5 sm:mr-2 mb-1 sm:mb-0" aria-hidden="true" />
+                  <tab.icon className="h-4 w-4 sm:mr-2 mb-1 sm:mb-0" aria-hidden="true" />
                   <span className="hidden md:inline">{tab.label}</span>
                   <span className="md:hidden">{tab.shortLabel}</span>
                 </button>
@@ -254,33 +249,16 @@ export const BabyFoodTracker: React.FC = () => {
         <main id="main-content" className="flex-1 bg-gray-50" role="main">
           <div className="p-6 max-w-7xl mx-auto">
             {activeTab === 'dashboard' && (
-              <motion.div 
-                className="space-y-6"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-              >
+              <div className="space-y-6">
                 {/* Daily Summary */}
                 <div data-tour="dashboard-summary">
                   <DailySummary />
                 </div>
                 
                 {/* Progress Cards */}
-                <motion.div 
-                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" 
-                  data-tour="progress-cards"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.7, delay: 0.2 }}
-                >
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" data-tour="progress-cards">
                   {/* Alimentos Testados */}
-                  <motion.div 
-                    className="bg-white rounded-2xl shadow-cel p-6 border border-kawaii-mint"
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5, delay: 0.3 }}
-                    whileHover={{ scale: 1.05 }}
-                  >
+                  <div className="bg-white rounded-2xl shadow-lg p-6 border border-green-100">
                     <h3 className="font-semibold text-gray-800 mb-4 flex items-center">
                       <Apple className="h-5 w-5 mr-2 text-green-500" />
                       Alimentos Testados
@@ -297,16 +275,10 @@ export const BabyFoodTracker: React.FC = () => {
                         Manga, Melão, Kiwi, Frutas vermelhas
                       </div>
                     </div>
-                  </motion.div>
+                  </div>
 
                   {/* Testes de Alergia */}
-                  <motion.div 
-                    className="bg-white rounded-2xl shadow-cel p-6 border border-kawaii-peach"
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5, delay: 0.4 }}
-                    whileHover={{ scale: 1.05 }}
-                  >
+                  <div className="bg-white rounded-2xl shadow-lg p-6 border border-orange-100">
                     <h3 className="font-semibold text-gray-800 mb-4 flex items-center">
                       <AlertTriangle className="h-5 w-5 mr-2 text-orange-500" />
                       Testes de Alergia
@@ -323,16 +295,10 @@ export const BabyFoodTracker: React.FC = () => {
                         {allergyTests.find(t => !t.tested)?.food || 'Todos concluídos'}
                       </div>
                     </div>
-                  </motion.div>
+                  </div>
 
                   {/* Suplementos Diários */}
-                  <motion.div 
-                    className="bg-white rounded-2xl shadow-cel p-6 border border-kawaii-sky"
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5, delay: 0.5 }}
-                    whileHover={{ scale: 1.05 }}
-                  >
+                  <div className="bg-white rounded-2xl shadow-lg p-6 border border-blue-100">
                     <h3 className="font-semibold text-gray-800 mb-4 flex items-center">
                       <Pill className="h-5 w-5 mr-2 text-blue-500" />
                       Suplementos Hoje
@@ -349,14 +315,14 @@ export const BabyFoodTracker: React.FC = () => {
                         {supplements.find(s => !s.taken)?.name || 'Todos tomados'}
                       </div>
                     </div>
-                  </motion.div>
+                  </div>
                   
                   {/* PWA Status */}
                   <PWAStatus />
                   
                   {/* Upcoming Reminders */}
                   <UpcomingReminders />
-                </motion.div>
+                </div>
 
                 {/* Analytics */}
                 <ProgressChart />
@@ -534,7 +500,7 @@ export const BabyFoodTracker: React.FC = () => {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             )}
             {activeTab === 'foods' && (
               <div 

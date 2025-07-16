@@ -164,6 +164,23 @@ kawaii-sky: #d3f4ff
 kawaii-cream: #fff9d3
 ```
 
+### How to Run with Anime UI
+```bash
+# Install dependencies (with legacy peer deps for React 19 compatibility)
+npm install --legacy-peer-deps
+
+# Start development server
+npm run dev
+
+# Build for production  
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+The anime UI is now live! Visit `http://localhost:5173` to see the kawaii transformation in action. 🌸
+
 ## 📄 License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
